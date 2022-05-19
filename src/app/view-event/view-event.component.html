@@ -1,0 +1,73 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container nav-element">
+    <a class="navbar-brand" href="#">
+      <div class="nav-img"></div>
+    </a>
+    <span>Daily Reminder App</span>
+    <button class="btn btn-light" (click)="toHome()">Home</button>
+  </div>
+</nav>
+<div>
+  <h2>Your Events</h2>
+</div>
+
+<div class="container col-10">
+  <!-- update event form -->
+  <app-existing-event-form
+    [enableEditOn]="editEventId"
+    (editCancel)="editCancel()"
+  ></app-existing-event-form>
+  <!-- delete -->
+  <app-delete-event
+    [toDeleteEventId]="eventId"
+    (onCancel)="onCancel()"
+    (deleteEvent)="deleteEvent($event)"
+  ></app-delete-event>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Event Name</th>
+        <th scope="col">Time of Occurance</th>
+        <th scope="col">Event Discription</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let event of events">
+        <th scope="row">{{ events.indexOf(event) + 1 }}</th>
+        <td>{{ event.eventName }}</td>
+        <td>{{ event.reminderTime }}</td>
+        <td>{{ event.description }}</td>
+        <td>
+          <button
+            class="btn btn-danger"
+            id="{{ event.id }}"
+            value=""
+            (click)="onDelete($event)"
+            type="button"
+          >
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td>
+          <button
+            (click)="onEdit($event)"
+            id="{{ event.id }}"
+            class="btn btn-success"
+            style="
+              background-image: url(./assets/download.png);
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+              height: 38px;
+              width: 38px;
+            "
+          ></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

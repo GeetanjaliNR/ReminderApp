@@ -1,0 +1,7 @@
+<div class="card text-center w-100" *ngIf="toDeleteEventId">
+  <div class="card-body" style="color: white">
+    <p class="card-text">Are you sure you want to delete the seleted event</p>
+    <button class="btn btn-success me-2" (click)="cancel()">No</button>
+    <button class="btn btn-danger" (click)="delete()">Yes</button>
+  </div>
+</div>

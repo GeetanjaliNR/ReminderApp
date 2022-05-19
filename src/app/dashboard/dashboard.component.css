@@ -1,0 +1,9 @@
+.dash-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 13rem;
+  margin-top: 1rem;
+}

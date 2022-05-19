@@ -1,0 +1,27 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container nav-element">
+    <a class="navbar-brand" href="#">
+      <div class="nav-img"></div>
+    </a>
+    <span>Daily Reminder App</span>
+    <button class="btn btn-light" (click)="logout()">Logout</button>
+  </div>
+</nav>
+<div>
+  <h2>Welcome {{ user }}!!</h2>
+  <span>{{ loginDate | date: "fullDate" | uppercase }}</span>
+</div>
+<div class="dash-btn">
+  <button class="btn btn-warning" (click)="createEvent()">
+    create a new event!
+  </button>
+
+  <button class="btn btn-success" (click)="viewEvents()">
+    view all events!
+  </button>
+</div>
+
+<app-new-event-form
+  (onCancel)="onCancel()"
+  [createNewEvent]="userId"
+></app-new-event-form>

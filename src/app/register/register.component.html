@@ -1,0 +1,116 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container nav-element">
+    <a class="navbar-brand" href="#">
+      <div class="nav-img">
+        <!-- <img
+          src="./assets/reminder-1605719-1361068.webp"
+          alt=""
+          width="30"
+          height="24"
+        /> -->
+      </div>
+    </a>
+    <span>Daily Reminder App</span>
+    <!-- <i class="fa fa-address-book" aria-hidden="true"></i> -->
+  </div>
+</nav>
+
+<!-- register -->
+
+<div class="container col-md-12 mt-0">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="text-center">Register</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                ><i class="fa fa-users" aria-hidden="true"></i
+              ></span>
+            </div>
+            <input
+              type="text"
+              name="username"
+              class="form-control"
+              placeholder="User Name"
+              id="login_uname"
+              formControlName="uname"
+              required
+            />
+          </div>
+          <div
+            style="color: red"
+            *ngIf="
+              this.registerForm.get('uname')?.errors &&
+              this.registerForm.get('uname')?.touched
+            "
+          >
+            Invalid Username
+          </div>
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input
+              type="text"
+              name="user id"
+              class="form-control"
+              placeholder="User Id"
+              id="login_accno"
+              formControlName="userid"
+              required
+            />
+          </div>
+          <div
+            style="color: red"
+            *ngIf="
+              this.registerForm.get('userid')?.errors &&
+              this.registerForm.get('userid')?.touched
+            "
+          >
+            Invalid User id
+          </div>
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input
+              type="password"
+              name="pswd"
+              class="form-control"
+              placeholder="password"
+              id="login_password"
+              formControlName="pswd"
+              required
+            />
+          </div>
+          <div
+            style="color: red"
+            *ngIf="
+              this.registerForm.get('pswd')?.errors &&
+              this.registerForm.get('pswd')?.touched
+            "
+          >
+            Invalid password
+          </div>
+          <div class="form-group">
+            <input
+              type="submit"
+              value="Register"
+              class="btn float-right login_btn"
+              style="width: 50%"
+            />
+          </div>
+        </form>
+      </div>
+      <p style="color: white; align-items: baseline">
+        Existing user? <a routerLink="login">Log In</a>
+      </p>
+    </div>
+  </div>
+</div>
