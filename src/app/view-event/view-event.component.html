@@ -12,11 +12,6 @@
 </div>
 
 <div class="container col-10">
-  <!-- update event form -->
-  <app-existing-event-form
-    [enableEditOn]="editEventId"
-    (editCancel)="editCancel()"
-  ></app-existing-event-form>
   <!-- delete -->
   <app-delete-event
     [toDeleteEventId]="eventId"
@@ -54,8 +49,8 @@
         </td>
         <td>
           <button
-            (click)="onEdit($event)"
             id="{{ event.id }}"
+            (click)="onEdit($event)"
             class="btn btn-success"
             style="
               background-image: url(./assets/download.png);

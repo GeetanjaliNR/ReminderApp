@@ -59,6 +59,7 @@ export class ViewEventComponent implements OnInit {
       },
       (result: any) => {
         alert(result.error.message);
+        this.router.navigateByUrl('login');
       }
     );
   }
@@ -67,11 +68,8 @@ export class ViewEventComponent implements OnInit {
   onEdit(event: any) {
     this.editEventId = (event.target.closest('button') as Element).id;
 
-    // console.log(this.editEventId);
+    localStorage.setItem('reminderId', JSON.stringify(this.editEventId));
 
-    // if (this.editEventId) {
-    //   localStorage.setItem('toEditEventId', JSON.stringify(this.editEventId));
-    // }
     this.ds.getRequiredEvent(this.editEventId).subscribe((result: any) => {
       if (result) {
         const { eventName, reminderTime, description } = result.message[0];
@@ -82,10 +80,12 @@ export class ViewEventComponent implements OnInit {
         );
       }
     });
+
+    this.router.navigateByUrl('existingFormUpdate');
   }
 
-  editCancel() {
-    this.editEventId = '';
-    localStorage.removeItem('toUpdateEvent');
-  }
+  // editCancel() {
+  //   this.editEventId = '';
+  // localStorage.removeItem('toUpdateEvent');
+  // }
 }

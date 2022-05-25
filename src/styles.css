@@ -5,6 +5,9 @@
 body {
   background-color: rgb(213, 213, 213);
   font-family: "Numans", sans-serif;
+  background-image: url(./assets/green-texture_1160-721.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .nav-img {
