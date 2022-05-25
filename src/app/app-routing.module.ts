@@ -5,14 +5,15 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ViewEventComponent } from './view-event/view-event.component';
 import { DeleteEventComponent } from './delete-event/delete-event.component';
+import { ExistingEventFormComponent } from './existing-event-form/existing-event-form.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'register',
     component: RegisterComponent,
   },
   {
-    path: 'login',
+    path: '',
     component: LoginComponent,
   },
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'deleteevent',
     component: DeleteEventComponent,
+  },
+  {
+    path: 'existingFormUpdate',
+    component: ExistingEventFormComponent,
   },
 ];
 

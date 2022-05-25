@@ -33,12 +33,14 @@ export class RegisterComponent implements OnInit {
         (result: any) => {
           if (result) {
             alert(result.message);
-            this.router.navigateByUrl('login');
+            this.router.navigateByUrl('');
           }
         },
         (result: any) => {
           alert(result.error.message);
-          this.router.navigateByUrl('login');
+          console.log(result);
+
+          this.router.navigateByUrl('');
         }
       );
     } else {

@@ -19,7 +19,10 @@ export class NewEventFormComponent implements OnInit {
       [Validators.required, Validators.pattern("[a-zA-Z0-9' ]*")],
     ],
     eventOccurTime: [''],
-    eventDesc: ['', [Validators.required, Validators.pattern("[a-zA-Z' ]*")]],
+    eventDesc: [
+      '',
+      [Validators.required, Validators.pattern("[a-zA-Z0-9' ]*")],
+    ],
   });
   constructor(private fb: FormBuilder, private ds: DataServiceService) {}
 

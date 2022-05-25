@@ -67,6 +67,26 @@ export class DataServiceService {
     );
   }
 
+  // saveUpdatedEvent
+  saveUpdatedEvent(
+    id: any,
+    eventName: any,
+    eventOccurTime: any,
+    eventDesc: any
+  ) {
+    const data = {
+      id,
+      eventName,
+      eventOccurTime,
+      eventDesc,
+    };
+    return this.http.put(
+      'http://localhost:3000/updateReminder',
+      data,
+      this.getOptions()
+    );
+  }
+
   viewEvent(userid: any) {
     const data = {
       userid,

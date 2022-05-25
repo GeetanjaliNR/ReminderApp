@@ -1,13 +1,15 @@
 <nav class="navbar navbar-light bg-light">
   <div class="container nav-element">
-    <a class="navbar-brand" href="#">
-      <div class="nav-img"></div>
+    <a class="navbar-brand" href="">
+      <div class="nav-img">
+        <span style="margin-left: 50px"> Daily Reminder App</span>
+      </div>
     </a>
-    <span>Daily Reminder App</span>
+    <!-- <span>Daily Reminder App</span> -->
     <button class="btn btn-light" (click)="logout()">Logout</button>
   </div>
 </nav>
-<div>
+<div style="text-align: center; margin: 15px">
   <h2>Welcome {{ user }}!!</h2>
   <span>{{ loginDate | date: "fullDate" | uppercase }}</span>
 </div>

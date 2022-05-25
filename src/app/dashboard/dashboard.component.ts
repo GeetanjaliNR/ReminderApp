@@ -13,12 +13,19 @@ export class DashboardComponent implements OnInit {
   userId: any;
 
   constructor(private fb: FormBuilder, private router: Router) {
-    this.user = JSON.parse(localStorage.getItem('currentUser') || '');
+    if (localStorage.getItem('currentUser')) {
+      this.user = JSON.parse(localStorage.getItem('currentUser') || '');
+    }
 
     this.loginDate = new Date();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (!localStorage.getItem('currentUserid')) {
+      alert('Session expired!! Please login..');
+      this.router.navigateByUrl('');
+    }
+  }
 
   // 1- to display new event form
   createEvent() {
@@ -37,6 +44,9 @@ export class DashboardComponent implements OnInit {
   logout() {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('currentUserid');
-    this.router.navigateByUrl('login');
+    localStorage.removeItem('toUpdateEvent');
+    localStorage.removeItem('reminderId');
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('');
   }
 }
